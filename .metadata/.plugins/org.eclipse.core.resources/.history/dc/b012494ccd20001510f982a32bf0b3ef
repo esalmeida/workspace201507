@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="sce-web-201507">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <property name="context-root" value="sce-web-201507"/>
+        <property name="java-output-path" value="/sce-web-201507/build/classes"/>
+    </wb-module>
+</project-modules>
