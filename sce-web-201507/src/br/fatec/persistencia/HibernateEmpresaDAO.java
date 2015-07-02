@@ -27,7 +27,7 @@ public class HibernateEmpresaDAO implements IEmpresaDAO {
 			codigoRetorno = "Cadastro realizado com sucesso";
 		} catch (PersistenceException exception) { // HibernateException
 			codigoRetorno = "Erro no cadastro";
-			logger.info("disparou um erro na transacao de persistencia do tipo PersistenceException = " + exception.toString());
+			logger.error("disparou um erro na transacao de persistencia do tipo " + exception.toString());
 		}
 		return codigoRetorno;
 	}

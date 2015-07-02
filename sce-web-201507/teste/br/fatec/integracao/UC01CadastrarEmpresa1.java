@@ -16,7 +16,7 @@ import br.fatec.dominio.Empresa;
 import br.fatec.persistencia.EmpresaDAO;
 import br.fatec.persistencia.HibernateEmpresaDAO;
 
-public class UC01CadastrarEmpresa2 {
+public class UC01CadastrarEmpresa1 {
 	public static HibernateEmpresaDAO empresaDAO;
 	public static Empresa empresa;
 
@@ -35,20 +35,21 @@ public class UC01CadastrarEmpresa2 {
 		empresa.setTelefoneResponsavel("121212");
 		empresa.setSetor("contabilidade");
 		empresa.setEmail("jsilva@gmail.com");
-		try{
-		empresaDAO.cadastra(empresa);
-		}catch (Exception e){
-			System.out.println(e.getMessage());
-		}
+		
 	}
 
 	@Test
 	public void CT01UC01CadastrarEmpresa_com_sucesso() {
-
+		try{
+			assertEquals("Cadastro realizado com sucesso",empresaDAO.cadastra(empresa));
+			}catch (Exception e){
+				System.out.println(e.getMessage());
+			}
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		empresaDAO.exclui("89424232000180");
 	}
 
 }
