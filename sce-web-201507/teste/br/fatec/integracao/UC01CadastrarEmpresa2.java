@@ -14,16 +14,16 @@ import org.junit.Test;
 
 import br.fatec.dominio.Empresa;
 import br.fatec.persistencia.EmpresaDAO;
+import br.fatec.persistencia.HibernateEmpresaDAO;
 
 public class UC01CadastrarEmpresa2 {
-	public static EmpresaDAO empresaDAO;
+	public static HibernateEmpresaDAO empresaDAO;
 	public static Empresa empresa;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		SessionFactory sessions = new AnnotationConfiguration().configure().buildSessionFactory(); //procura o hibernate.cfg.xml
-		Session session = sessions.openSession();
-		empresaDAO = new EmpresaDAO(session);
+		
+		empresaDAO = new HibernateEmpresaDAO();
 		empresa = new Empresa();
 		//89.424.232/0001-80
 		empresa.setNomeDaEmpresa("empresa x");
@@ -36,7 +36,7 @@ public class UC01CadastrarEmpresa2 {
 		empresa.setSetor("contabilidade");
 		empresa.setEmail("jsilva@gmail.com");
 		try{
-		empresaDAO.salvar(empresa);
+		empresaDAO.cadastra(empresa);
 		}catch (Exception e){
 			System.out.println(e.getMessage());
 		}
